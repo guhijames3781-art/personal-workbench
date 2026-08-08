@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>个人成长工作台</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- 主内容区域 -->
+        <div class="main-content" id="mainContent">
+            <!-- 页面内容由JS动态渲染 -->
+        </div>
+
+        <!-- 底部导航 -->
+        <nav class="bottom-nav">
+            <div class="nav-item active" data-page="home">
+                <div class="nav-icon">🏠</div>
+                <div class="nav-label">首页</div>
+            </div>
+            <div class="nav-item" data-page="plan">
+                <div class="nav-icon">📋</div>
+                <div class="nav-label">计划</div>
+            </div>
+            <div class="nav-item nav-center" data-page="bill">
+                <div class="nav-center-btn">
+                    <span>💰</span>
+                </div>
+                <div class="nav-label">记账</div>
+            </div>
+            <div class="nav-item" data-page="knowledge">
+                <div class="nav-icon">📚</div>
+                <div class="nav-label">知识</div>
+            </div>
+            <div class="nav-item" data-page="profile">
+                <div class="nav-icon">👤</div>
+                <div class="nav-label">我的</div>
+            </div>
+        </nav>
+
+        <!-- 记账浮层 -->
+        <div class="bill-modal" id="billModal">
+            <div class="bill-modal-content">
+                <div class="bill-modal-header">
+                    <h3>记一笔</h3>
+                    <button class="modal-close" id="billModalClose">✕</button>
+                </div>
+                <div class="bill-type-toggle">
+                    <button class="type-btn active" data-type="expense">支出</button>
+                    <button class="type-btn" data-type="income">收入</button>
+                </div>
+                <div class="bill-amount">
+                    <span class="currency">¥</span>
+                    <input type="number" id="billAmount" placeholder="0.00" step="0.01">
+                </div>
+                <div class="bill-categories" id="billCategories">
+                    <!-- 分类图标由JS渲染 -->
+                </div>
+                <div class="bill-form">
+                    <input type="date" id="billDate">
+                    <input type="text" id="billNote" placeholder="添加备注...">
+                </div>
+                <div class="bill-summary">
+                    <div class="summary-item">
+                        <span class="summary-label">本月支出</span>
+                        <span class="summary-value expense" id="monthExpense">¥0</span>
+                    </div>
+                    <div class="summary-item">
+                        <span class="summary-label">本月收入</span>
+                        <span class="summary-value income" id="monthIncome">¥0</span>
+                    </div>
+                    <div class="summary-item">
+                        <span class="summary-label">结余</span>
+                        <span class="summary-value" id="monthBalance">¥0</span>
+                    </div>
+                </div>
+                <button class="bill-save-btn" id="billSaveBtn">保存记录</button>
+                <div class="bill-detail-link" id="billDetailLink">查看完整账单 →</div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/storage.js"></script>
+    <script src="js/data.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
